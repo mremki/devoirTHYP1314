@@ -1,0 +1,21 @@
+ <?php
+ // module/Application2/view/application2/application2/add.phtml:
+
+ $title = 'Ajouter une nouvelle personne';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('application2', array('action' => 'add')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('nom'));
+ echo $this->formRow($form->get('prenom'));
+ echo $this->formRow($form->get('note'));
+ echo $this->formRow($form->get('exercices'));
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();
+ 
+ ?>
